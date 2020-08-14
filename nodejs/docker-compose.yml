@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: "./"
+      dockerfile: "Dockerfile"
+    image: node:14_app
+    container_name: nodejs
+    command: "npm start"
+    working_dir: "/src"
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - $HOME/dev/nodejs/cert:/src/cert
